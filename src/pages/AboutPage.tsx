@@ -46,7 +46,6 @@ export function AboutPage() {
                     {[
                       { id: 'overview', label: 'Overview' },
                       { id: 'education', label: 'Education' },
-                      { id: 'career', label: 'Career' },
                       { id: 'lifestyle', label: 'Lifestyle' }
                     ].map((section) => (
                       <a
@@ -157,58 +156,6 @@ export function AboutPage() {
               </Card>
             </motion.section>
 
-            {/* Career Section */}
-            <motion.section
-              id="career"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Card variant="elevated" rounded="lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-xl">
-                    <div className="w-10 h-10 bg-violet-100 dark:bg-violet-900/20 rounded-xl flex items-center justify-center">
-                      <Briefcase className="h-5 w-5 text-violet-600 dark:text-violet-400" />
-                    </div>
-                    Career Journey
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-8">
-                    {profile.career.map((job, index) => (
-                      <div key={index} className="relative">
-                        {index !== profile.career.length - 1 && (
-                          <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-gradient-to-b from-violet-200 to-transparent dark:from-violet-800"></div>
-                        )}
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                            <div className="w-3 h-3 bg-white rounded-full"></div>
-                          </div>
-                          <div className="flex-1 min-w-0 bg-stone-50 dark:bg-stone-800/50 rounded-lg p-4">
-                            <h4 className="font-semibold text-lg mb-1">{job.title}</h4>
-                            <p className="text-violet-600 dark:text-violet-400 font-medium">{job.org}</p>
-                            <p className="text-sm text-stone-500 dark:text-stone-400 mb-3">
-                              {job.from} - {job.to}
-                            </p>
-                            {job.bullets && (
-                              <ul className="text-sm text-stone-600 dark:text-stone-300 space-y-2">
-                                {job.bullets.map((bullet, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="mr-3 text-violet-500 font-bold">•</span>
-                                    {bullet}
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.section>
 
             {/* Lifestyle Section */}
             <motion.section

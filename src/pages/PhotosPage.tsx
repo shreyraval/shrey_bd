@@ -45,7 +45,6 @@ export function PhotosPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentImages, setCurrentImages] = useState<string[]>([])
-  const placeholderImage = assetPath('images/placeholder-image.jpg')
 
   if (loading || !profile) {
     return (
@@ -55,8 +54,15 @@ export function PhotosPage() {
     )
   }
 
-  const normalizeImages = (paths?: string[]) =>
-    Array.isArray(paths) ? paths.map((image) => assetPath(image)) : []
+  const normalizeImages = (paths?: string[]) => {
+    if (!Array.isArray(paths)) return []
+    const clean = paths.filter(path =>
+      typeof path === 'string' &&
+      path.trim() &&
+      !/placeholder/i.test(path)
+    )
+    return clean.map((image) => assetPath(image))
+  }
 
   const getAllImages = () => {
     const allImages: string[] = []
@@ -168,13 +174,9 @@ export function PhotosPage() {
               </p>
             </div>
           ) : (
-            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-              {filteredImages.map((image, index) => {
-                // Create varied heights for masonry effect
-                const heights = ['aspect-square', 'aspect-[3/4]', 'aspect-[4/5]', 'aspect-[2/3]']
-                const randomHeight = heights[index % heights.length]
-
-                return (
+            <section className="mx-auto max-w-6xl px-4">
+              <div className="grid justify-center gap-8 sm:grid-cols-2 md:grid-cols-3 [grid-auto-rows:1fr]">
+                {filteredImages.map((image, index) => (
                   <motion.div
                     key={`${activeCategory}-${index}`}
                     initial={{ opacity: 0, y: 20 }}
@@ -185,7 +187,6 @@ export function PhotosPage() {
                       type: "spring",
                       stiffness: 100
                     }}
-                    className="break-inside-avoid mb-6"
                   >
                     <Card
                       variant="elevated"
@@ -193,17 +194,15 @@ export function PhotosPage() {
                       className="overflow-hidden cursor-pointer group hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
                     >
                       <div
-                        className={cn("relative", randomHeight)}
+                        className="relative w-full overflow-hidden rounded-2xl bg-neutral-100 shadow-md aspect-[4/3] cursor-pointer"
                         onClick={() => openLightbox(index)}
                       >
                         <img
                           src={image}
                           alt={`Gallery image ${index + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement
-                            target.src = placeholderImage
-                          }}
+                          className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => { e.currentTarget.parentElement?.classList.add('hidden') }}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
@@ -213,9 +212,9 @@ export function PhotosPage() {
                       </div>
                     </Card>
                   </motion.div>
-                )
-              })}
-            </div>
+                ))}
+              </div>
+            </section>
           )}
         </motion.div>
 

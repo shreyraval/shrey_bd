@@ -110,39 +110,37 @@ export function FamilyPage() {
 
           {/* Siblings Section */}
           {profile.family.siblings && profile.family.siblings.length > 0 && (
-            <motion.section variants={itemVariants}>
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold font-display mb-4 flex items-center justify-center gap-3">
-                  <div className="w-10 h-10 bg-violet-100 dark:bg-violet-900/20 rounded-xl flex items-center justify-center">
-                    <Users className="h-5 w-5 text-violet-600 dark:text-violet-400" />
-                  </div>
-                  Siblings
-                </h2>
-                <p className="text-lg text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
-                  My wonderful {profile.family.siblings.length === 1 ? 'sibling' : 'siblings'} who {profile.family.siblings.length === 1 ? 'has' : 'have'} been my {profile.family.siblings.length === 1 ? 'companion' : 'companions'} throughout life's journey.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.section variants={itemVariants} id="siblings" className="mx-auto max-w-6xl px-4 py-8 text-center">
+              <h2 className="mb-6 text-3xl font-semibold">Siblings</h2>
+              <p className="mx-auto mb-8 max-w-2xl">My wonderful sibling who has been my companion throughout life's journey.</p>
+              <div
+                className={
+                  profile.family.siblings.length === 1
+                    ? "grid place-items-center"
+                    : "grid justify-center gap-8 sm:grid-cols-2 md:grid-cols-3"
+                }
+              >
                 {profile.family.siblings.map((sibling, index) => (
-                  <Card key={index} variant="elevated" rounded="lg" className="text-center group hover:scale-105 transition-transform duration-300">
-                    <CardContent className="p-6">
-                      <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                        <User className="h-12 w-12 text-white" />
-                      </div>
-                      <h3 className="text-xl font-semibold font-display mb-2">
-                        {sibling.name || `${sibling.relation}`}
-                      </h3>
-                      <p className="text-violet-600 dark:text-violet-400 font-medium mb-3">
-                        {sibling.relation}
-                      </p>
-                      {sibling.details && (
-                        <p className="text-stone-600 dark:text-stone-300 leading-relaxed">
-                          {sibling.details}
+                  <div key={index} className="mx-auto w-full max-w-md">
+                    <Card variant="elevated" rounded="lg" className="text-center group hover:scale-105 transition-transform duration-300">
+                      <CardContent className="p-6">
+                        <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                          <User className="h-12 w-12 text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold font-display mb-2">
+                          {sibling.name || `${sibling.relation}`}
+                        </h3>
+                        <p className="text-violet-600 dark:text-violet-400 font-medium mb-3">
+                          {sibling.relation}
                         </p>
-                      )}
-                    </CardContent>
-                  </Card>
+                        {sibling.details && (
+                          <p className="text-stone-600 dark:text-stone-300 leading-relaxed">
+                            {sibling.details}
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </div>
                 ))}
               </div>
             </motion.section>

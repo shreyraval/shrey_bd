@@ -8,8 +8,6 @@ import {
   Users,
   Globe,
   Download,
-  Eye,
-  EyeOff
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -22,7 +20,7 @@ import { assetPath } from '@/lib/assetPath'
 
 export function HomePage() {
   const { profile, loading, error } = useProfile()
-  const [showSensitive, setShowSensitive] = useState(false)
+  const showSensitive = true
   const heroUrl = assetPath('images/hero-bg.jpg')
 
   if (loading) {
@@ -201,24 +199,6 @@ export function HomePage() {
               <p className="text-lg text-stone-600 dark:text-stone-400 max-w-2xl mx-auto mb-8">
                 Get to know the essential details about my background, interests, and aspirations.
               </p>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowSensitive(!showSensitive)}
-                className="gap-2"
-              >
-                {showSensitive ? (
-                  <>
-                    <EyeOff className="h-4 w-4" />
-                    Hide Details
-                  </>
-                ) : (
-                  <>
-                    <Eye className="h-4 w-4" />
-                    Show Details
-                  </>
-                )}
-              </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Header } from './Header'
-import { Footer } from './Footer'
 import { ShareModal } from '@/components/Modals/ShareModal'
 
 export function Layout() {
@@ -15,7 +14,6 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <Footer />
 
       <ShareModal
         open={shareModalOpen}
