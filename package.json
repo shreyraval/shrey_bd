@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "deploy": "npm run build && npm run deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d dist",
-    "images": "echo 'Place your optimized images in public/images/ directories. Consider using tools like imagemin or sharp for optimization.'"
+    "images": "echo 'Place your optimized images in public/images/ directories. Consider using tools like imagemin or sharp for optimization.'",
+    "validate:assets": "node scripts/validate-assets.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

@@ -8,20 +8,23 @@ export function useProfile() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    const loadProfileSafe = async (url: string) => {
+      const res = await fetch(url, { cache: 'no-cache' })
+      if (!res.ok) throw new Error(`profile.json HTTP ${res.status}`)
+      const data = await res.json()
+      return data
+    }
+
     const fetchProfile = async () => {
       try {
         setLoading(true)
         const profileUrl = assetPath('data/profile.json')
         console.log('[profile.json URL]', profileUrl)
-        const response = await fetch(profileUrl, { cache: 'no-cache' })
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch profile data')
-        }
-
-        const data = await response.json()
+        const data = await loadProfileSafe(profileUrl)
         setProfile(data)
       } catch (err) {
+        console.error('Profile loading error:', err)
         setError(err instanceof Error ? err.message : 'An error occurred')
       } finally {
         setLoading(false)

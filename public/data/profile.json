@@ -15,12 +15,12 @@
     {
       "degree": "MS in Information Systems",
       "school": "University of Washington",
-      "year": 2025,
+      "year": 2025
     },
     {
       "degree": "BS in Computer Information Systems",
       "school": "Benedictine University",
-      "year": 2024,
+      "year": 2024
     }
   ],
   "career": [
@@ -85,7 +85,7 @@
     "casual": [
       "images/casual/chicago.jpeg",
       "images/casual/rainier.jpeg",
-      "images/casual/srk.JPG"
+      "images/casual/srk.jpg"
     ],
     "traditional": [
       "images/traditional/benedictine.jpeg",
