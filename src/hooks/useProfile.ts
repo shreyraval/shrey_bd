@@ -12,6 +12,7 @@ export function useProfile() {
       try {
         setLoading(true)
         const profileUrl = assetPath('data/profile.json')
+        console.log('[profile.json URL]', profileUrl)
         const response = await fetch(profileUrl, { cache: 'no-cache' })
 
         if (!response.ok) {
