@@ -83,13 +83,13 @@
   },
   "gallery": {
     "casual": [
-      "/images/casual/chicago.jpeg",
-      "/images/casual/rainier.jpeg",
-      "/images/casual/srk.JPG"
+      "images/casual/chicago.jpeg",
+      "images/casual/rainier.jpeg",
+      "images/casual/srk.JPG"
     ],
     "traditional": [
-      "/images/traditional/benedictine.jpeg",
-      "/images/traditional/lynwood.jpeg"
+      "images/traditional/benedictine.jpeg",
+      "images/traditional/lynwood.jpeg"
     ]
   },
   "privacy": {
