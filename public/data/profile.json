@@ -1,0 +1,98 @@
+{
+  "name": "Shrey Raval",
+  "tagline": "Kind, curious, family-oriented | Tech professional",
+  "location": "Chicago, IL (USA)",
+  "dob": "December 11, 2002",
+  "age": 22,
+  "height_cm": 183,
+  "religion": "Hindu",
+  "community": "Gujarati Brahmin",
+  "languages": ["English", "Hindi", "Gujarati"],
+  "profession": "Software/AI Engineer",
+  "company": "Tech Innovators Inc.",
+  "education_highest": "MS in Information Systems, University of Washington",
+  "education": [
+    {
+      "degree": "MS in Information Systems",
+      "school": "University of Washington",
+      "year": 2025,
+    },
+    {
+      "degree": "BS in Computer Information Systems",
+      "school": "Benedictine University",
+      "year": 2024,
+    }
+  ],
+  "career": [
+    {
+      "title": "ML/Software Engineer",
+      "org": "Tech Innovators Inc.",
+      "from": "2024",
+      "to": "Present",
+      "bullets": [
+        "Built AI APIs processing 10M+ requests daily",
+        "Deployed microservices on AWS EC2/Lambda",
+        "Led team of 3 engineers on ML pipeline optimization"
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "org": "StartupXYZ",
+      "from": "2021",
+      "to": "2023",
+      "bullets": [
+        "Developed full-stack web applications using React/Node.js",
+        "Implemented CI/CD pipelines reducing deployment time by 60%"
+      ]
+    }
+  ],
+  "interests": ["Sports (Cricket, Football, Tennis, Golf)", "Photography", "Travel", "Movies", "Music"],
+  "lifestyle": {
+    "diet": "Vegetarian",
+    "alcohol": "No",
+    "smoke": "Non-smoker",
+    "work_life": "Balanced approach"
+  },
+  "preferences": {
+    "relocation": true,
+    "abroad": true,
+    "family_values": "Traditional with modern outlook"
+  },
+  "family": {
+    "parents": {
+      "father": {
+        "name": "Badrishkumar Raval",
+        "occupation": "Business Owner"
+      },
+      "mother": {
+        "name": "Suchita Raval",
+        "occupation": "Homemaker"
+      }
+    },
+    "siblings": [
+      {
+        "relation": "Sister",
+        "name": "Devanshi Jani",
+        "details": "Doctor, happily married"
+      }
+    ]
+  },
+  "contacts": {
+    "phone": "+1-341-345-7968",
+    "whatsapp": "+1-341-345-7968"
+  },
+  "gallery": {
+    "casual": [
+      "/images/casual/chicago.jpeg",
+      "/images/casual/rainier.jpeg",
+      "/images/casual/srk.JPG"
+    ],
+    "traditional": [
+      "/images/traditional/benedictine.jpeg",
+      "/images/traditional/lynwood.jpeg"
+    ]
+  },
+  "privacy": {
+    "mask_sensitive": true
+  }
+}
